@@ -1,4 +1,4 @@
-const ENDPOINT_URL = "https://script.google.com/macros/s/TON_ENDPOINT_APPS_SCRIPT/exec";
+const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbzcgd4jfjQYAqwhOitn7isCWWzYzXN-3AZ_K_TE3PZPnk4axZuZ8BDx8_u-QliUxk0j/exec";
 
 let selectedRating = null;
 const ratingEl = document.getElementById("rating");
