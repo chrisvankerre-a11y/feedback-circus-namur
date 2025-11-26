@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Votre avis - Circus Casino Resort Namur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Votre avis sur l’accueil</h1>
+
+    <p>Comment qualifieriez-vous l’accueil que vous avez reçu au Circus Casino Resort Namur ?</p>
+
+    <div id="rating" class="stars">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+    <label>
+      Commentaire (facultatif)
+      <textarea id="comment" rows="3"></textarea>
+    </label>
+
+    <label>
+      Votre nom (facultatif)
+      <input id="name" type="text" />
+    </label>
+
+    <fieldset>
+      <legend>Souhaitez-vous être contacté pour un suivi ?</legend>
+      <label><input type="radio" name="followup" value="oui" /> Oui</label>
+      <label><input type="radio" name="followup" value="non" /> Non</label>
+    </fieldset>
+
+    <label id="contact-wrapper">
+      Vos coordonnées (facultatif – e-mail, téléphone…)
+      <input id="contact" type="text" inputmode="email tel" />
+    </label>
+
+    <button id="submit">Envoyer</button>
+
+    <p id="status" class="status"></p>
+
+    <p class="gdpr">
+      Vos données sont utilisées uniquement pour le suivi de votre feedback par
+      Circus Casino Resort Namur et ne sont pas partagées avec des tiers.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
