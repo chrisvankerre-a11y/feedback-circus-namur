@@ -1,18 +1,18 @@
 const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbzcgd4jfjQYAqwhOitn7isCWWzYzXN-3AZ_K_TE3PZPnk4axZuZ8BDx8_u-QliUxk0j/exec";
 
 let selectedRating = null;
+
 const ratingEl = document.getElementById("rating");
 const stars = ratingEl.querySelectorAll("span");
 const statusEl = document.getElementById("status");
 
+// Gestion des étoiles
 stars.forEach(star => {
   star.addEventListener("click", () => {
     selectedRating = parseInt(star.dataset.value, 10);
     stars.forEach(s => {
-      s.classList.toggle(
-        "active",
-        parseInt(s.dataset.value, 10) <= selectedRating
-      );
+      const value = parseInt(s.dataset.value, 10);
+      s.classList.toggle("active", value <= selectedRating);
     });
   });
 });
@@ -25,7 +25,10 @@ document.getElementById("submit").addEventListener("click", async () => {
 
   const comment = document.getElementById("comment").value.trim();
   const name = document.getElementById("name").value.trim();
-  const followup = (document.querySelector("input[name='followup']:checked') || {}).value || "";
+
+  const followupInput = document.querySelector("input[name='followup']:checked");
+  const followup = followupInput ? followupInput.value : "";
+
   const contact = document.getElementById("contact").value.trim();
 
   const payload = {
@@ -51,14 +54,14 @@ document.getElementById("submit").addEventListener("click", async () => {
     });
 
     statusEl.textContent = "Merci, votre avis a bien été envoyé.";
+
     // Optionnel : reset du formulaire
     // selectedRating = null;
     // stars.forEach(s => s.classList.remove("active"));
     // document.getElementById("comment").value = "";
     // document.getElementById("name").value = "";
     // document.getElementById("contact").value = "";
-    // const checked = document.querySelector("input[name='followup']:checked");
-    // if (checked) checked.checked = false;
+    // if (followupInput) followupInput.checked = false;
   } catch (e) {
     console.error(e);
     statusEl.textContent = "Une erreur est survenue. Merci de réessayer plus tard.";
